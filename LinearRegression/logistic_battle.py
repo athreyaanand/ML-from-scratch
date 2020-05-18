@@ -20,5 +20,12 @@ sklearn_regressor = LinearRegression().fit(X_train, y_train)
 my_train_accuracy = my_regressor.score()
 sklearn_train_accuracy = sklearn_regressor.score(X_train, y_train)
 
-# TODO: still have to implement score method within my regressor
 my_test_accuracy = my_regressor.score(X_test, y_test)
+sklearn_test_accuracy = sklearn_regressor.score(X_test, y_test)
+
+result = pd.DataFrame([[my_train_accuracy, sklearn_train_accuracy],
+              [my_test_accuracy, sklearn_test_accuracy]],
+             ['Training Acc.', 'Test Acc.'],    
+             ['Our\'s', 'Sklearn\'s'])
+
+print(result)
