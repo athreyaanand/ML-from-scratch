@@ -1,6 +1,6 @@
 import numpy as np
 
-class LogisticRegression:
+class LinearRegression:
     def __init__(self, X, y, alpha = 0.01, iterations = 1500):
         self.X = X
         self.y = y
