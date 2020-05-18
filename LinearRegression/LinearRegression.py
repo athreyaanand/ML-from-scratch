@@ -20,7 +20,7 @@ class LinearRegression:
         # normalize X
         X = (X - np.mean(X, 0)) / np.std(X, 0)
         # add bias term into X itself so we don't have to worry about it
-        X = np.hstack((np.ones(num_samples, 1)), X)
+        X = np.hstack((np.ones((num_samples, 1)), X))
 
         return X
 
