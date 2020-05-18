@@ -45,5 +45,3 @@ class LogisticRegression:
 
     def get_params(self):
         return self.params
-
-
