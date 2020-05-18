@@ -5,14 +5,14 @@ import LinearRegression as lr
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LinearRegression
 
-# load in candy data
-df = pd.read_csv("candy-data.csv")
-df = df.drop(columns = ['competitorname', 'winpercent'])
+from sklearn.datasets import load_boston
 
-X = df.iloc[:, 1:]
-y = df.iloc[:, 0][:, np.newaxis]
+dataset = load_boston()
+X = dataset.data
+y = dataset.target
+print(f"This dataset contains {X.shape[0]} entries and {X.shape[1]} features")
 
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.3, random_state = 42)
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.3)
 
 my_regressor = lr.LinearRegression(X_train, y_train).fit()
 sklearn_regressor = LinearRegression().fit(X_train, y_train)
