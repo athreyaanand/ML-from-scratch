@@ -1,7 +1,7 @@
 import numpy as np
 
 class LogisticRegression:
-    def __init__(self, X, y, alpha = 0.01, iterations = 1500):
+    def __init__(self, X, y, alpha = 0.03, iterations = 1500):
         self.X = X
         self.y = y
         self.alpha = alpha
@@ -48,7 +48,7 @@ class LogisticRegression:
             y = y[:, np.newaxis]
             
         y_pred = np.round(self.sigmoid(X @ self.params))
-        score = 1 - (((y - y_pred)**2).sum() / ((y - y.mean())**2).sum())
+        score = float(sum(y_pred == y)) / float(len(y))
 
         return score
 
